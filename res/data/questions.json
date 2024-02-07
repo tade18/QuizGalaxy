@@ -1,0 +1,24 @@
+[
+  {
+      "questionId" : 1,
+      "question": "S kterou z těchto zemí nesousedí Řecko?",
+      "answers": {
+        "a": "Albánie",
+        "b": "Severní Makedonie",
+        "c": "Turecko" ,
+        "d": "Černá Hora"
+      },
+      "correctAnswer": "d"
+    },
+    {
+      "questionId" : 2,
+      "question": "Jakou z uvedených barev nalezneme na vlajce Mikronésie?",
+      "answers": {
+        "a": "modrá",
+        "b": "zelená",
+        "c": "oranžová",
+        "d": "žlutá"
+      },
+      "correctAnswer": "a"
+    }
+]
