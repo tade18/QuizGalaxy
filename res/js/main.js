@@ -7,44 +7,63 @@ const btnD = document.getElementById("btnD");
 const result = document.getElementById("result");
 const correctCounter = document.getElementById("correctCounter");
 
-let counter = 0;
-
-let questionNumber = 0;
-
-let correctValue = "";
-
-let answerValue = "";
-
-const resetResult = () =>{
-    result.innerText = "";
-}
-
-const buildQuiz = async() =>{
-    const file = await fetch("./res/data/questions.json");
-    const data = await file.json();
-    console.log("Odpověď: "+answerValue);
-    correctCounter.innerText = "Správně zodpovězeno: " + counter;
-    questionHeadline.innerText = data[questionNumber].question;
-    btnA.innerText = data[questionNumber].answers.a;
-    btnB.innerText = data[questionNumber].answers.b;
-    btnC.innerText = data[questionNumber].answers.c;
-    btnD.innerText = data[questionNumber].answers.d;
-    correctValue = data[questionNumber].correctAnswer;
-    return correctValue;
-}
-
-const getAnswer = () => {
-    console.log("Odpověď: "+answerValue);
+//CLEAR BUTTON-------------------------------------------
+const clearButton = () =>{
+    btnA.style = null;
+    btnB.style = null;
+    btnC.style = null;
+    btnD.style = null;
 };
 
 //HIDE ELEMENT-------------------------------------------
 const hideElement = (element) => {
     element.style.display = "none";
-}
+};
 //SHOW ELEMENT-------------------------------------------
 const showElement = (element) => {
-    element.style.display = "initial"
-}
+    element.style.display = "initial"};
+
+//COUNTER SPRÁVNÝCH ODPOVĚDÍ-----------------------------
+let counter = 0;
+
+//ČÍSLO OTÁZKY-------------------------------------------
+let questionNumber = 0;
+
+//SPRÁVNÁ ODPOVĚĎ NA OTÁZKU------------------------------
+let correctValue = "";
+
+//USER ODPOVĚĎ NA OTÁZKU---------------------------------
+let answerValue = "";
+
+//RESULT RESET-------------------------------------------
+/*po vypsání "správně" nebo "špatně" se text vymaže*/
+const resetResult = () =>{
+    result.innerText = "";
+};
+
+//BUILD QUIZ---------------------------------------------
+const buildQuiz = async() =>{
+    /*načte info o otázce z json*/
+    const file = await fetch("./res/data/questions.json");
+    const data = await file.json();
+    /*vypíše do konzole jakou odpověď uživatel zvolil*/
+    console.log("Odpověď: "+answerValue);
+    /*
+     * aktualizovaný counter správných odpovědí
+     * counter se aktualizuje při stisknutí tlačítka submit
+     */
+    correctCounter.innerText = "Správně zodpovězeno: " + counter;
+    /*zobrazí se aktuální otázka*/
+    questionHeadline.innerText = data[questionNumber].question;
+    /*zobrazí se možné odpovědí*/
+    btnA.innerText = data[questionNumber].answers.a;
+    btnB.innerText = data[questionNumber].answers.b;
+    btnC.innerText = data[questionNumber].answers.c;
+    btnD.innerText = data[questionNumber].answers.d;
+    /*js zjistí správnou odpověď na otázku*/
+    correctValue = data[questionNumber].correctAnswer;
+    return correctValue;
+};
     window.onload = async () =>{
         buildQuiz();
 };
@@ -52,27 +71,38 @@ const showElement = (element) => {
 
 
 btnA.onclick = () => {
+    clearButton();
+    btnA.style.backgroundColor = "blue";
     answerValue = btnA.value;
     getAnswer();
 };
 
 btnB.onclick = () => {
+    clearButton();
+    btnB.style.backgroundColor = "blue";
     answerValue = btnB.value;
     getAnswer();
 };
 
 btnC.onclick = () => {
+    clearButton();
+    btnC.style.backgroundColor = "blue";
     answerValue = btnC.value;
     getAnswer();
 };
 
 btnD.onclick = () => {
+    clearButton();
+    btnD.style.backgroundColor = "blue";
     answerValue = btnD.value;
     getAnswer();
 };
 
 submit.onclick = () => {
+    clearButton();
     if (answerValue == correctValue) {
+        showElement(result);
+        result.style.color = "green";
         result.innerText = "Správná odpověď";
         counter ++;
         hideElement(submit);
@@ -81,11 +111,14 @@ submit.onclick = () => {
             showElement(submit);
             buildQuiz();
             hideElement(result);
+            result.style.color = null;
             resetResult();
         }, 1200);
         return counter;
     }
     else{
+        showElement(result);
+        result.style.color = "red";
         result.innerText = "Špatně";
         questionHeadline.innerText = "Konec hry";
         hideElement(btnA);

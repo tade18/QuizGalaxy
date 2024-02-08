@@ -15,13 +15,13 @@ html,body{
 #quizArea{
     height: 600px;
     width: 900px;
-    background-color: #3E92CC;
+    background-color: rgba(0, 0, 49, 0.829);
     border-radius: 15px;
     margin-top: 10%;
 }
 #submit{
     background-color: #022B3A;
-    color: #E1E5F2;
+    color: #FFFAFF;
     margin-top: 10%;
 }
 #questionHeadline{
@@ -36,7 +36,7 @@ html,body{
 }
 header{
     display: block;
-    background-color: rgba(0, 0, 49, 0.726);
+    background-color: rgba(0, 0, 49, 0.829);
     height: 100px;
     position: absolute;
     top: 0;
@@ -45,4 +45,7 @@ header{
 
 header img{
     height: 90%;
+}
+#correctCounter{
+    color: #FFFAFF;
 }
