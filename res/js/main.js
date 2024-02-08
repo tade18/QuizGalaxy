@@ -6,8 +6,18 @@ const btnC = document.getElementById("btnC");
 const btnD = document.getElementById("btnD");
 const result = document.getElementById("result");
 const correctCounter = document.getElementById("correctCounter");
+const againButton = document.getElementById("againButton");
 
-//CLEAR BUTTON-------------------------------------------
+const getAnswer = () => {
+    console.log("Odpověď: "+answerValue);
+};
+
+//RESET ANSWER----------------------------------------
+const resetUserAnswer = () =>{
+    answerValue = "";
+}
+
+//CLEAR BUTTON----------------------------------------
 const clearButton = () =>{
     btnA.style = null;
     btnB.style = null;
@@ -15,32 +25,41 @@ const clearButton = () =>{
     btnD.style = null;
 };
 
-//HIDE ELEMENT-------------------------------------------
+//COUNTER RESET---------------------------------------
+const resetCounter = () =>{
+    counter = 0;
+};
+
+//QUESTION NUMBER RESET-------------------------------
+const resetQuestionNumber = () =>{
+    questionNumber = 0;
+};
+
+//HIDE ELEMENT----------------------------------------
 const hideElement = (element) => {
     element.style.display = "none";
 };
-//SHOW ELEMENT-------------------------------------------
+//SHOW ELEMENT----------------------------------------
 const showElement = (element) => {
     element.style.display = "initial"};
-
-//COUNTER SPRÁVNÝCH ODPOVĚDÍ-----------------------------
+    
+//COUNTER SPRÁVNÝCH ODPOVĚDÍ-------------------------
 let counter = 0;
-
-//ČÍSLO OTÁZKY-------------------------------------------
+    
+//ČÍSLO OTÁZKY---------------------------------------
 let questionNumber = 0;
-
-//SPRÁVNÁ ODPOVĚĎ NA OTÁZKU------------------------------
+    
+//SPRÁVNÁ ODPOVĚĎ NA OTÁZKU--------------------------
 let correctValue = "";
-
-//USER ODPOVĚĎ NA OTÁZKU---------------------------------
+    
+//USER ODPOVĚĎ NA OTÁZKU-----------------------------
 let answerValue = "";
-
-//RESULT RESET-------------------------------------------
+    
+//RESULT RESET---------------------------------------
 /*po vypsání "správně" nebo "špatně" se text vymaže*/
 const resetResult = () =>{
     result.innerText = "";
 };
-
 //BUILD QUIZ---------------------------------------------
 const buildQuiz = async() =>{
     /*načte info o otázce z json*/
@@ -49,9 +68,9 @@ const buildQuiz = async() =>{
     /*vypíše do konzole jakou odpověď uživatel zvolil*/
     console.log("Odpověď: "+answerValue);
     /*
-     * aktualizovaný counter správných odpovědí
-     * counter se aktualizuje při stisknutí tlačítka submit
-     */
+    * aktualizovaný counter správných odpovědí
+    * counter se aktualizuje při stisknutí tlačítka submit
+    */
     correctCounter.innerText = "Správně zodpovězeno: " + counter;
     /*zobrazí se aktuální otázka*/
     questionHeadline.innerText = data[questionNumber].question;
@@ -64,8 +83,22 @@ const buildQuiz = async() =>{
     correctValue = data[questionNumber].correctAnswer;
     return correctValue;
 };
-    window.onload = async () =>{
-        buildQuiz();
+window.onload = async () =>{
+    buildQuiz();
+};
+    
+//AGAIN BUTTON---------------------------------------
+againButton.onclick = () =>{
+    resetCounter();
+    resetQuestionNumber();
+    buildQuiz();
+    showElement(btnA);
+    showElement(btnB);
+    showElement(btnC);
+    showElement(btnD);
+    showElement(submit);
+    hideElement(againButton);
+    resetResult();
 };
 
 
@@ -102,6 +135,7 @@ submit.onclick = () => {
     clearButton();
     if (answerValue == correctValue) {
         showElement(result);
+        resetUserAnswer();
         result.style.color = "green";
         result.innerText = "Správná odpověď";
         counter ++;
@@ -116,6 +150,11 @@ submit.onclick = () => {
         }, 1200);
         return counter;
     }
+    else if(answerValue == ""){
+        result.style.color = "yellow";
+        result.innerText = "Nebyla zaznamenána odpověď!";
+        showElement(result);
+    }
     else{
         showElement(result);
         result.style.color = "red";
@@ -126,5 +165,6 @@ submit.onclick = () => {
         hideElement(btnC);
         hideElement(btnD);
         hideElement(submit);
+        showElement(againButton);
     };
 };

@@ -49,3 +49,6 @@ header img{
 #correctCounter{
     color: #FFFAFF;
 }
+#againButton{
+    display: none;
+}
