@@ -62,10 +62,10 @@ const resetResult = () =>{
 };
 //BUILD QUIZ---------------------------------------------
 const buildQuiz = async() =>{
-    /*načte info o otázce z json*/
     const file = await fetch("./res/data/questions.json");
     const data = await file.json();
-    /*vypíše do konzole jakou odpověď uživatel zvolil*/
+    if (questionNumber <= data.length-1) {
+            /*vypíše do konzole jakou odpověď uživatel zvolil*/
     console.log("Odpověď: "+answerValue);
     /*
     * aktualizovaný counter správných odpovědí
@@ -82,6 +82,22 @@ const buildQuiz = async() =>{
     /*js zjistí správnou odpověď na otázku*/
     correctValue = data[questionNumber].correctAnswer;
     return correctValue;
+    }
+    else{
+        result.style.color = "green";
+        result.innerText = "Gratulujeme!";
+        showElement(result);
+        questionHeadline.innerText = "Konec hry";
+        resetUserAnswer();
+        hideElement(btnA);
+        hideElement(btnB);
+        hideElement(btnC);
+        hideElement(btnD);
+        hideElement(submit);
+        showElement(againButton);
+    }
+
+
 };
 window.onload = async () =>{
     buildQuiz();
@@ -160,6 +176,7 @@ submit.onclick = () => {
         result.style.color = "red";
         result.innerText = "Špatně";
         questionHeadline.innerText = "Konec hry";
+        resetUserAnswer();
         hideElement(btnA);
         hideElement(btnB);
         hideElement(btnC);
