@@ -1,0 +1,1 @@
+Hokus pokus o kvíz
