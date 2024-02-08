@@ -8,6 +8,7 @@ const result = document.getElementById("result");
 const correctCounter = document.getElementById("correctCounter");
 const againButton = document.getElementById("againButton");
 
+//GET ANSWER------------------------------------------
 const getAnswer = () => {
     console.log("Odpověď: "+answerValue);
 };
