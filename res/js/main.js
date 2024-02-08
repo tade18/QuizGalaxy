@@ -5,6 +5,9 @@ const btnB = document.getElementById("btnB");
 const btnC = document.getElementById("btnC");
 const btnD = document.getElementById("btnD");
 const result = document.getElementById("result");
+const correctCounter = document.getElementById("correctCounter");
+
+let counter = 0;
 
 let questionNumber = 0;
 
@@ -12,10 +15,15 @@ let correctValue = "";
 
 let answerValue = "";
 
+const resetResult = () =>{
+    result.innerText = "";
+}
+
 const buildQuiz = async() =>{
     const file = await fetch("./res/data/questions.json");
     const data = await file.json();
     console.log("Odpověď: "+answerValue);
+    correctCounter.innerText = "Správně zodpovězeno: " + counter;
     questionHeadline.innerText = data[questionNumber].question;
     btnA.innerText = data[questionNumber].answers.a;
     btnB.innerText = data[questionNumber].answers.b;
@@ -66,8 +74,24 @@ btnD.onclick = () => {
 submit.onclick = () => {
     if (answerValue == correctValue) {
         result.innerText = "Správná odpověď";
+        counter ++;
         hideElement(submit);
-        setTimeout(() => {questionNumber++;showElement(submit);buildQuiz();hideElement(result)}, 1200)
+        setTimeout(() => {
+            questionNumber++;
+            showElement(submit);
+            buildQuiz();
+            hideElement(result);
+            resetResult();
+        }, 1200);
+        return counter;
     }
-    else{result.innerText = "Špatně"};
+    else{
+        result.innerText = "Špatně";
+        questionHeadline.innerText = "Konec hry";
+        hideElement(btnA);
+        hideElement(btnB);
+        hideElement(btnC);
+        hideElement(btnD);
+        hideElement(submit);
+    };
 };

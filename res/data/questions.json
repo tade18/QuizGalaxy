@@ -20,5 +20,60 @@
         "d": "žlutá"
       },
       "correctAnswer": "a"
+    },
+    {
+      "questionId" : 3,
+      "question": "Ve které zemi nalezneme město Kutaisi?",
+      "answers": {
+        "a": "Ukrajina",
+        "b": "Bělorusko",
+        "c": "Gruzie",
+        "d": "Arménie"
+      },
+      "correctAnswer": "c"
+    },
+    {
+      "questionId" : 4,
+      "question": "Jaké národnosti byl přírodovědec Lorenz Oken?",
+      "answers": {
+        "a": "Německé",
+        "b": "Polské",
+        "c": "České",
+        "d": "Belgické"
+      },
+      "correctAnswer": "a"
+    },
+    {
+      "questionId" : 5,
+      "question": "Který z těchto filmů nerežíroval Quentin Tarantino?",
+      "answers": {
+        "a": "Nespoutaný Django",
+        "b": "Hanebný pancharti",
+        "c": "Titanic",
+        "d": "Kill Bill"
+      },
+      "correctAnswer": "c"
+    },
+    {
+      "questionId" : 6,
+      "question": "Na kterém ostrově se nachází sopka Etna?",
+      "answers": {
+        "a": "Sardinie",
+        "b": "Kypr",
+        "c": "Sicílie",
+        "d": "Korsika"
+      },
+      "correctAnswer": "c"
+    },
+    {
+      "questionId" : 7,
+      "question": "Jak se jmenoval první automobil značky Ford?",
+      "answers": {
+        "a": "Model F",
+        "b": "Model A",
+        "c": "Model T",
+        "d": "Fiesta"
+      },
+      "correctAnswer": "b"
     }
 ]
