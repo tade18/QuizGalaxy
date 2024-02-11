@@ -40,6 +40,7 @@ html,body{
 }
 #questionHeadline{
     color: #FFFAFF;
+    font-size: xx-large;
 }
 .answerBTN{
     width: 20%;
@@ -135,7 +136,7 @@ footer p{
         height: 60px;
     }
     #questionHeadline{
-        font-size: large;
+        font-size: x-large;
     }
     #submit{
         margin-top: 2%;
