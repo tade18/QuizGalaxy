@@ -21,16 +21,22 @@ html,body{
     background-color: rgba(0, 0, 49, 0.829);
     border-radius: 15px;
     margin-top: 8%;
+    transition: 2s ease;
 }
 #submit{
     background-color: rgb(209, 0, 98);
     color: #FFFAFF;
     font-size: large;
-    margin-top: 10%;
+    margin-top: 5%;
     width: 20%;
     height: 8%;
     border-radius: 15px;
     border: none;
+    margin-left: 40%;
+}
+#submit:hover{
+    box-shadow: #FFFAFF 0 5px;
+    transform: translateY(-10px);
 }
 #questionHeadline{
     color: #FFFAFF;
@@ -44,17 +50,18 @@ html,body{
     font-size: 1.5em;
 }
 .answerBTN:hover{
-    box-shadow: rgb(209, 0, 98) 5px 5px;
+    box-shadow: rgb(209, 0, 98) 0 10px;
     transform: translateY(-10px);
 }
 #answerWrap{
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
 }
 header{
     display: block;
     background-color: rgba(0, 0, 49, 0.829);
-    height: 100px;
+    height: 95px;
     position: absolute;
     top: 0;
     width: 100%;
@@ -67,10 +74,15 @@ header:hover{
 
 header img{
     height: 90%;
+    transition: 3s ease;
+}
+header img:hover{
+    transform: rotate(-20deg);
 }
 #correctCounter{
     color: #FFFAFF;
     font-size: larger;
+    text-align: center;
 }
 #againButton{
     display: none;
@@ -79,19 +91,52 @@ header img{
     border: #FFFAFF 2px solid;
     background-color: transparent;
     color: #FFFAFF;
+    width: 20%;
+    margin-left: 40%;
 }
 #result{
     font-size: x-large;
+    text-align: center;
 }
 footer{
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    height: 5%;
+    height: 7%;
     background-color: rgba(0, 0, 49, 0.829);
     width: 100%;
     display: block;
+    text-align: center;
 }
 footer p{
     color: #FFFAFF;
     margin: auto;
+}
+
+@media screen and (max-width: 1000px) {
+    .answerBTN{
+        width: 100%;
+        margin: auto;
+        margin-top: 2%;
+        height: 20%;
+    }
+    #answerWrap{
+        width: 95%;
+        height: 50%;
+        margin: auto;
+        flex-direction: column;
+    }
+    #quizArea{
+        width: 100%;
+        margin-top: 10%;
+        height: 80%;
+    }
+    header{
+        height: 60px;
+    }
+    #questionHeadline{
+        font-size: large;
+    }
+    #submit{
+        margin-top: 2%;
+    }
 }
