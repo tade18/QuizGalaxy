@@ -68,11 +68,12 @@ const buildQuiz = async() =>{
     if (questionNumber <= data.length-1) {
             /*vypíše do konzole jakou odpověď uživatel zvolil*/
     console.log("Odpověď: "+answerValue);
+    const totalQuestions = data.length-1;
     /*
     * aktualizovaný counter správných odpovědí
     * counter se aktualizuje při stisknutí tlačítka submit
     */
-    correctCounter.innerText = "Správně zodpovězeno: " + counter;
+    correctCounter.innerText = "Správně zodpovězeno: " + counter + "/" + totalQuestions;
     /*zobrazí se aktuální otázka*/
     questionHeadline.innerText = data[questionNumber].question;
     /*zobrazí se možné odpovědí*/

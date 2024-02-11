@@ -75,5 +75,27 @@
         "d": "Fiesta"
       },
       "correctAnswer": "b"
+    },
+    {
+      "questionId" : 8,
+      "question": "Ve kterém městě byl v roce 1914 spáchán atentát na následovníka Rakousko-Uherského trůnu Františka Ferdinanda d´Este?",
+      "answers": {
+        "a": "Kodaň",
+        "b": "Kišiněv",
+        "c": "Sarajevo",
+        "d": "Záhřeb"
+      },
+      "correctAnswer": "c"
+    },
+    {
+      "questionId" : 9,
+      "question": "V kolika letech zemřel americký romantický básník a prozaik Allan Edgar Poe?",
+      "answers": {
+        "a": "ve 30 letech",
+        "b": "ve 40 letech",
+        "c": "v 50 letech",
+        "d": "v 60 letech"
+      },
+      "correctAnswer": "b"
     }
 ]
