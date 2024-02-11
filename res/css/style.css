@@ -96,7 +96,7 @@ header img:hover{
 }
 #result{
     font-size: x-large;
-    text-align: center;
+    display: none;
 }
 footer{
     position: fixed;
@@ -118,6 +118,7 @@ footer p{
         margin: auto;
         margin-top: 2%;
         height: 20%;
+        padding: 0.2em;
     }
     #answerWrap{
         width: 95%;
@@ -128,7 +129,7 @@ footer p{
     #quizArea{
         width: 100%;
         margin-top: 10%;
-        height: 80%;
+        height: 75%;
     }
     header{
         height: 60px;
