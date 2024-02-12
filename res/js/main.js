@@ -46,6 +46,8 @@ const showElement = (element) => {
     
 //COUNTER SPRÁVNÝCH ODPOVĚDÍ-------------------------
 let counter = 0;
+
+let correctNum = 0;
     
 //ČÍSLO OTÁZKY---------------------------------------
 let questionNumber = 0;
@@ -68,7 +70,7 @@ const buildQuiz = async() =>{
     if (questionNumber <= data.length-1) {
             /*vypíše do konzole jakou odpověď uživatel zvolil*/
     console.log("Odpověď: "+answerValue);
-    const totalQuestions = data.length-1;
+    const totalQuestions = data.length;
     /*
     * aktualizovaný counter správných odpovědí
     * counter se aktualizuje při stisknutí tlačítka submit
