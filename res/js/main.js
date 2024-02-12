@@ -7,6 +7,19 @@ const btnD = document.getElementById("btnD");
 const result = document.getElementById("result");
 const correctCounter = document.getElementById("correctCounter");
 const againButton = document.getElementById("againButton");
+const classicMode = document.getElementById("classicMode");
+const menuArea = document.getElementById("menuArea");
+const quizArea = document.getElementById("quizArea");
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+//AUDIO-----------------------------------------------
+const correct = new Audio("./res/audio/correct.mp3");
+const endMusic = new Audio("./res/audio/end.mp3");
+const wrong = new Audio("./res/audio/wrong.mp3");
+const start = new Audio("./res/audio/start.mp3")
 
 //GET ANSWER------------------------------------------
 const getAnswer = () => {
@@ -48,7 +61,7 @@ const showElement = (element) => {
 let counter = 0;
 
 let correctNum = 0;
-    
+   
 //ČÍSLO OTÁZKY---------------------------------------
 let questionNumber = 0;
     
@@ -63,33 +76,58 @@ let answerValue = "";
 const resetResult = () =>{
     result.innerText = "";
 };
+
+
+let generatedNumbers = [];
 //BUILD QUIZ---------------------------------------------
 const buildQuiz = async() =>{
     const file = await fetch("./res/data/questions.json");
     const data = await file.json();
-    if (questionNumber <= data.length-1) {
+
+/*Generování náhodných čísel které se nebudou opakovat*/
+
+function generateRandomNumber() {
+    if (generatedNumbers.length === data.length) {
+        generatedNumbers = [];
+    }
+
+    let randomNumber;
+    do {
+        //náhodné číslo od 0 do 20
+        randomNumber = Math.floor(Math.random() * data.length);
+    } while (generatedNumbers.includes(randomNumber)); // Pokud se číslo již nachází v poli, generuje nové
+
+    generatedNumbers.push(randomNumber); // Přidání číslo do pole generovaných čísel
+    return randomNumber;
+}
+    let actualNum = generateRandomNumber();
+    console.log(generatedNumbers);
+    if (questionNumber < 10) {
             /*vypíše do konzole jakou odpověď uživatel zvolil*/
     console.log("Odpověď: "+answerValue);
-    const totalQuestions = data.length;
+
     /*
     * aktualizovaný counter správných odpovědí
     * counter se aktualizuje při stisknutí tlačítka submit
     */
-    correctCounter.innerText = "Správně zodpovězeno: " + counter + "/" + totalQuestions;
+    correctCounter.innerText = "Správně zodpovězeno: " + counter + "/" + 10;
     /*zobrazí se aktuální otázka*/
-    questionHeadline.innerText = data[questionNumber].question;
+    questionHeadline.innerText = data[actualNum].question;
     /*zobrazí se možné odpovědí*/
-    btnA.innerText = data[questionNumber].answers.a;
-    btnB.innerText = data[questionNumber].answers.b;
-    btnC.innerText = data[questionNumber].answers.c;
-    btnD.innerText = data[questionNumber].answers.d;
+    btnA.innerText = data[actualNum].answers.a;
+    btnB.innerText = data[actualNum].answers.b;
+    btnC.innerText = data[actualNum].answers.c;
+    btnD.innerText = data[actualNum].answers.d;
     /*js zjistí správnou odpověď na otázku*/
-    correctValue = data[questionNumber].correctAnswer;
+    correctValue = data[actualNum].correctAnswer;
     return correctValue;
     }
     else{
+        /*Konec hry*/
         result.style.color = "green";
         result.innerText = "Gratulujeme!";
+        endMusic.play();
+        hideElement(correctCounter);
         showElement(result);
         questionHeadline.innerText = "Konec hry";
         resetUserAnswer();
@@ -99,14 +137,16 @@ const buildQuiz = async() =>{
         hideElement(btnD);
         hideElement(submit);
         showElement(againButton);
-    }
+        console.log(generatedNumbers);
+        generatedNumbers = [];
+    } 
+   };
 
+//WINDOW ONLOAD--------------------------------------
+window.onload = () =>{
+    hideElement(quizArea);
+};
 
-};
-window.onload = async () =>{
-    buildQuiz();
-};
-    
 //AGAIN BUTTON---------------------------------------
 againButton.onclick = () =>{
     resetCounter();
@@ -118,11 +158,19 @@ againButton.onclick = () =>{
     showElement(btnD);
     showElement(submit);
     hideElement(againButton);
+    showElement(correctCounter);
     resetResult();
 };
 
+//CLASSIC MODE---------------------------------------
+classicMode.onclick = () =>{
+    hideElement(menuArea);
+    buildQuiz();
+    showElement(quizArea);
+    start.play();
+};
 
-
+//BUTTONS--------------------------------------------
 btnA.onclick = () => {
     clearButton();
     btnA.style.backgroundColor = "blue";
@@ -151,13 +199,16 @@ btnD.onclick = () => {
     getAnswer();
 };
 
+//SUMBIT--------------------------------------------
 submit.onclick = () => {
     clearButton();
+    /*Správná odpověď*/
     if (answerValue == correctValue) {
         showElement(result);
         resetUserAnswer();
         result.style.color = "green";
         result.innerText = "Správná odpověď";
+        correct.play();
         counter ++;
         hideElement(submit);
         setTimeout(() => {
@@ -165,21 +216,24 @@ submit.onclick = () => {
             showElement(submit);
             buildQuiz();
             hideElement(result);
-            result.style.color = null;
             resetResult();
         }, 1200);
         return counter;
     }
+    /*Žádná odpověď*/
     else if(answerValue == ""){
         result.style.color = "yellow";
         result.innerText = "Nebyla zaznamenána odpověď!";
         showElement(result);
     }
     else{
+        /*Špatná odpověď*/
         showElement(result);
         result.style.color = "red";
         result.innerText = "Špatně";
+        wrong.play();
         questionHeadline.innerText = "Konec hry";
+        generatedNumbers = [];
         resetUserAnswer();
         hideElement(btnA);
         hideElement(btnB);

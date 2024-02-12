@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="res/css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./res/css/style.css">
+    <title>QuizGalaxy</title>
 </head>
 <body>
     <header>
-        <img src="res/img/logo/logoWhite.png">
+        <img src="res/img/logo/logoWhite.png" id="logo">
     </header>
-    <div id="quizArea">
+    <div id="menuArea">
+        <h1>Vyberte herní režim</h1>
         <div id="gamemodeWrap">
-            <a href="game.html" class="gamemode"><img src="res/img/gamemodes/ClassicMode.jpeg"></a>
-            <a href="#" class="gamemode"><img src="res/img/gamemodes/LockedGameMode.jpeg"></a>
-            <a href="#" class="gamemode"><img src="res/img/gamemodes/LockedGameMode.jpeg"></a>
+            <img src="res/img/gamemodes/ClassicMode.png" class="gamemode" id="classicMode" value="0" title="Odpovězte na 10 otázek!">
+            <img src="res/img/gamemodes/LockedGameMode.png" class="gamemode" value="1" title="Něco se chystá...">
+            <img src="res/img/gamemodes/LockedGameMode.png" class="gamemode" value="2" title="Něco se chystá...">
         </div>
     </div>
+
+    <div id="quizArea">
+        <div id="questionHeadline"></div>
+        <div id="answerWrap">
+            <button class="answerBTN" id="btnA" value="a"></button>
+            <button class="answerBTN" id="btnB" value="b"></button>
+            <button class="answerBTN" id="btnC" value="c"></button>
+            <button class="answerBTN" id="btnD" value="d"></button>
+        </div>
+        <div id="result"></div><br>
+        <button id="submit">Vyhodnotit</button>
+        <div id="correctCounter"></div>
+        <button id="againButton">Hrát znovu</button>
+    </div>
     <footer>
-        <p>Vytvořil Tadeáš Keller</p>
+        <p>vytvořil: Tadeáš Keller</p>
     </footer>
+    <script src="./res/js/main.js"></script>
 </body>
 </html>

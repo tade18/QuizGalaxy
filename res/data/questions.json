@@ -97,5 +97,105 @@
         "d": "v 60 letech"
       },
       "correctAnswer": "b"
+    },
+    {
+      "questionId" : 10,
+      "question": "Ve kterém českém městě sídlí automobilka ŠKODA?",
+      "answers": {
+        "a": "Liberec",
+        "b": "Praha",
+        "c": "Příbram",
+        "d": "Mladá Boleslav"
+      },
+      "correctAnswer": "d"
+    },
+    {
+      "questionId" : 11,
+      "question": "Kdo režíroval film Přelet nad kukaččím hnízdem(1975)?",
+      "answers": {
+        "a": "Christopher Nolan",
+        "b": "Zdeněk Troška",
+        "c": "Miloš Forman",
+        "d": "Ron Howard"
+      },
+      "correctAnswer": "c"
+    },
+    {
+      "questionId" : 12,
+      "question": "Mick Jagger je/byl členem které hudební skupiny?",
+      "answers": {
+        "a": "The Who",
+        "b": "Cream",
+        "c": "The Rolling Stones",
+        "d": "AC/DC"
+      },
+      "correctAnswer": "c"
+    },
+    {
+      "questionId" : 13,
+      "question": "Latinský název pro Vydru Říční je:",
+      "answers": {
+        "a": "Lutra lutra",
+        "b": "Loxodonta africana",
+        "c": "Lemmus lemmus",
+        "d": "Canis lupus dingo"
+      },
+      "correctAnswer": "a"
+    },
+    {
+      "questionId" : 14,
+      "question": "Laponsko je jednou z provincií kterého státu?",
+      "answers": {
+        "a": "Japonsko",
+        "b": "Nepál",
+        "c": "Finsko",
+        "d": "Kanada"
+      },
+      "correctAnswer": "c"
+    },
+    {
+      "questionId" : 15,
+      "question": "Ve kterém roce byl zavražděn J.F. Kenedy?",
+      "answers": {
+        "a": "1954",
+        "b": "1957",
+        "c": "1960",
+        "d": "1963"
+      },
+      "correctAnswer": "d"
+    },
+    {
+      "questionId" : 16,
+      "question": "Z kolika minimálně tónů se skládá akord?",
+      "answers": {
+        "a": "1",
+        "b": "2",
+        "c": "3",
+        "d": "4"
+      },
+      "correctAnswer": "c"
+    },
+    {
+      "questionId" : 17,
+      "question": "Kde se konalo Mistrovství světa v hokeji v roce 2011?",
+      "answers": {
+        "a": "na Slovensku",
+        "b": "ve Švédsku",
+        "c": "v České republice",
+        "d": "v Lotyšsku"
+      },
+      "correctAnswer": "a"
+    },
+    {
+      "questionId" : 18,
+      "question": "Ze kterého automobilu vytvořil Emmet Brown ve filmu Návrat do budoucnosti stroj času?",
+      "answers": {
+        "a": "Chevrolet Corvette",
+        "b": "DeLorean DMC-12",
+        "c": "Ford Mustang",
+        "d": "Shelby Daytona"
+      },
+      "correctAnswer": "b"
     }
+    
 ]
