@@ -141,6 +141,7 @@ footer p{
     color: #FFFAFF;
     font-size: larger;
     text-align: center;
+    display: block !important;
 }
 /*Tlačítko pro opakování kvízu*/
 #againButton{

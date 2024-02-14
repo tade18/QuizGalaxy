@@ -20,7 +20,8 @@ function getRandomInt(max) {
 const correct = new Audio("./res/audio/correct.mp3");
 const endMusic = new Audio("./res/audio/end.mp3");
 const wrong = new Audio("./res/audio/wrong.mp3");
-const start = new Audio("./res/audio/start.mp3")
+const start = new Audio("./res/audio/start.mp3");
+const timeRunOut = new Audio("./res/audio/timeRunOut.mp3");
 
 //GET ANSWER------------------------------------------
 const getAnswer = () => {
@@ -103,7 +104,7 @@ const badEndQuiz = () =>{
     hideElement(time);
     result.style.color = "red";
     result.innerText = "Čas vypršel!";
-    endMusic.play();
+    timeRunOut.play();
     hideElement(correctCounter);
     showElement(result);
     questionHeadline.innerText = "Konec hry";
@@ -129,11 +130,11 @@ const buildQuiz = async() =>{
 function generateRandomNumber() {
     time.value = 30;
     timeProgress =  setInterval(()=>{
-        time.value-=3;
-        if(time.value<1){
+        time.value-=0.03;
+        if(time.value==0){
             badEndQuiz();
         }
-    },1000)
+    },10)
     if (generatedNumbers.length === data.length) {
         generatedNumbers = [];
     }
@@ -265,6 +266,7 @@ submit.onclick = () => {
         showElement(result);
         result.style.color = "red";
         result.innerText = "Špatně";
+        hideElement(time);
         clearInterval(timeProgress);
         wrong.play();
         questionHeadline.innerText = "Konec hry";
