@@ -156,10 +156,12 @@ footer p{
 /*Výsledek odpovědi*/
 #result{
     font-size: x-large;
-    display: block;
+    display: block !important;
     width: 100%;
     text-align: center;
-    border: #FFFAFF 1px solid;
+}
+#time{
+    width: 100%;
 }
 /*Responzivita pro menší obrazovky*/
 @media screen and (max-width: 950px) {

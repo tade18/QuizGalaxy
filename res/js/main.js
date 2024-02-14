@@ -10,6 +10,7 @@ const againButton = document.getElementById("againButton");
 const classicMode = document.getElementById("classicMode");
 const menuArea = document.getElementById("menuArea");
 const quizArea = document.getElementById("quizArea");
+const time = document.getElementById("time");
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -87,6 +88,7 @@ const buildQuiz = async() =>{
 /*Generování náhodných čísel které se nebudou opakovat*/
 
 function generateRandomNumber() {
+    time.value = 30;
     if (generatedNumbers.length === data.length) {
         generatedNumbers = [];
     }
