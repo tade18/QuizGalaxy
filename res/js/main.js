@@ -78,30 +78,75 @@ const resetResult = () =>{
     result.innerText = "";
 };
 
+const endQuiz = () =>{
+    clearInterval(timeProgress);
+    hideElement(time);
+    result.style.color = "green";
+    result.innerText = "Gratulujeme!";
+    endMusic.play();
+    hideElement(correctCounter);
+    showElement(result);
+    questionHeadline.innerText = "Konec hry";
+    resetUserAnswer();
+    hideElement(btnA);
+    hideElement(btnB);
+    hideElement(btnC);
+    hideElement(btnD);
+    hideElement(submit);
+    showElement(againButton);
+    console.log(generatedNumbers);
+    generatedNumbers = [];
+}
+
+const badEndQuiz = () =>{
+    clearInterval(timeProgress);
+    hideElement(time);
+    result.style.color = "red";
+    result.innerText = "Čas vypršel!";
+    endMusic.play();
+    hideElement(correctCounter);
+    showElement(result);
+    questionHeadline.innerText = "Konec hry";
+    resetUserAnswer();
+    hideElement(btnA);
+    hideElement(btnB);
+    hideElement(btnC);
+    hideElement(btnD);
+    hideElement(submit);
+    showElement(againButton);
+    console.log(generatedNumbers);
+    generatedNumbers = [];
+}
 
 let generatedNumbers = [];
 //BUILD QUIZ---------------------------------------------
 const buildQuiz = async() =>{
+    showElement(time);
     const file = await fetch("./res/data/questions.json");
     const data = await file.json();
 
 /*Generování náhodných čísel které se nebudou opakovat*/
-
 function generateRandomNumber() {
     time.value = 30;
+    timeProgress =  setInterval(()=>{
+        time.value-=3;
+        if(time.value<1){
+            badEndQuiz();
+        }
+    },1000)
     if (generatedNumbers.length === data.length) {
         generatedNumbers = [];
     }
 
     let randomNumber;
     do {
-        //náhodné číslo od 0 do 20
-        randomNumber = Math.floor(Math.random() * data.length);
+        randomNumber = Math.floor(Math.random() * data.length); //náhodné číslo od 0 do 20
     } while (generatedNumbers.includes(randomNumber)); // Pokud se číslo již nachází v poli, generuje nové
 
     generatedNumbers.push(randomNumber); // Přidání číslo do pole generovaných čísel
     return randomNumber;
-}
+    }
+
     let actualNum = generateRandomNumber();
     console.log(generatedNumbers);
     if (questionNumber < 10) {
@@ -126,21 +171,7 @@ function generateRandomNumber() {
     }
     else{
         /*Konec hry*/
-        result.style.color = "green";
-        result.innerText = "Gratulujeme!";
-        endMusic.play();
-        hideElement(correctCounter);
-        showElement(result);
-        questionHeadline.innerText = "Konec hry";
-        resetUserAnswer();
-        hideElement(btnA);
-        hideElement(btnB);
-        hideElement(btnC);
-        hideElement(btnD);
-        hideElement(submit);
-        showElement(againButton);
-        console.log(generatedNumbers);
-        generatedNumbers = [];
+        endQuiz();
     } 
    };
 
@@ -211,6 +242,7 @@ submit.onclick = () => {
         result.style.color = "green";
         result.innerText = "Správná odpověď";
         correct.play();
+        clearInterval(timeProgress);
         counter ++;
         hideElement(submit);
         setTimeout(() => {
@@ -233,6 +265,7 @@ submit.onclick = () => {
         showElement(result);
         result.style.color = "red";
         result.innerText = "Špatně";
+        clearInterval(timeProgress);
         wrong.play();
         questionHeadline.innerText = "Konec hry";
         generatedNumbers = [];
