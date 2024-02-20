@@ -196,6 +196,39 @@
         "d": "Shelby Daytona"
       },
       "correctAnswer": "b"
+    },
+    {
+      "questionId" : 19,
+      "question": "Ve kterém století vznikla americká zbrojovka Colt?",
+      "answers": {
+        "a": "18.století",
+        "b": "19.století",
+        "c": "20.století",
+        "d": "21.století"
+      },
+      "correctAnswer": "b"
+    },
+    {
+      "questionId" : 20,
+      "question": "Ve kterém oceánu nalezneme nejhlubší podmořský příkop na světě(Mariánský příkop)?",
+      "answers": {
+        "a": "v Tichém oceánu",
+        "b": "v Atlantském oceánu",
+        "c": "v Severním Ledovém oceánu",
+        "d": "v Indickém oceánu"
+      },
+      "correctAnswer": "a"
+    },
+    {
+      "questionId" : 21,
+      "question": "Jak se nazývali ozbrojené síly nacistického Německa?",
+      "answers": {
+        "a": "Specnaz",
+        "b": "Wehrmacht",
+        "c": "NSDAP",
+        "d": "Rudá armáda"
+      },
+      "correctAnswer": "b"
     }
     
 ]
