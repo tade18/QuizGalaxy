@@ -229,6 +229,27 @@
         "d": "Rudá armáda"
       },
       "correctAnswer": "b"
+    },
+    {
+      "questionId" : 22,
+      "question": "Co je to rozeklanec?",
+      "answers": {
+        "a": "druh savce",
+        "b": "druh horniny",
+        "c": "druh kapradiny",
+        "d": "slovenský národní pokrm"
+      },
+      "correctAnswer": "c"
+    },
+    {
+      "questionId" : 23,
+      "question": "V jakém roce byl na trh uveden stolní počítač s názvem Apple II?",
+      "answers": {
+        "a": "1964",
+        "b": "1977",
+        "c": "1979",
+        "d": "1982"
+      },
+      "correctAnswer": "b"
     }
-    
 ]
