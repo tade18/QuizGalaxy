@@ -7,6 +7,7 @@ const btnD = document.getElementById("btnD");
 const result = document.getElementById("result");
 const correctCounter = document.getElementById("correctCounter");
 const againButton = document.getElementById("againButton");
+const menuButton = document.getElementById("menuButton");
 const classicMode = document.getElementById("classicMode");
 const menuArea = document.getElementById("menuArea");
 const quizArea = document.getElementById("quizArea");
@@ -79,6 +80,28 @@ const resetResult = () =>{
     result.innerText = "";
 };
 
+function displayUtilButttons() {
+    showElement(againButton);
+    showElement(menuButton);
+};
+
+function hideUtilButtons() {
+    hideElement(againButton);
+    hideElement(menuButton);
+};
+function displayAnswers() {
+    showElement(btnA);
+    showElement(btnB);
+    showElement(btnC);
+    showElement(btnD);
+};
+function hideAnswers() {
+    hideElement(btnA);
+    hideElement(btnB);
+    hideElement(btnC);
+    hideElement(btnD);
+}
+
 const endQuiz = () =>{
     clearInterval(timeProgress);
     hideElement(time);
@@ -94,7 +117,7 @@ const endQuiz = () =>{
     hideElement(btnC);
     hideElement(btnD);
     hideElement(submit);
-    showElement(againButton);
+    displayUtilButttons();
     console.log(generatedNumbers);
     generatedNumbers = [];
 }
@@ -109,12 +132,8 @@ const badEndQuiz = () =>{
     showElement(result);
     questionHeadline.innerText = "Konec hry";
     resetUserAnswer();
-    hideElement(btnA);
-    hideElement(btnB);
-    hideElement(btnC);
-    hideElement(btnD);
     hideElement(submit);
-    showElement(againButton);
+    displayUtilButttons();
     console.log(generatedNumbers);
     generatedNumbers = [];
 }
@@ -123,6 +142,10 @@ let generatedNumbers = [];
 //BUILD QUIZ---------------------------------------------
 const buildQuiz = async() =>{
     showElement(time);
+    hideUtilButtons();
+    displayAnswers();
+    showElement(submit);
+    showElement(correctCounter);
     const file = await fetch("./res/data/questions.json");
     const data = await file.json();
 
@@ -176,26 +199,25 @@ function generateRandomNumber() {
     } 
    };
 
-//WINDOW ONLOAD--------------------------------------
-window.onload = () =>{
-    hideElement(quizArea);
-};
-
 //AGAIN BUTTON---------------------------------------
 againButton.onclick = () =>{
     resetCounter();
     resetQuestionNumber();
     buildQuiz();
-    showElement(btnA);
-    showElement(btnB);
-    showElement(btnC);
-    showElement(btnD);
+    displayAnswers();
     showElement(submit);
-    hideElement(againButton);
+    hideUtilButtons();
     showElement(correctCounter);
     resetResult();
 };
 
+menuButton.onclick = () =>{
+    resetCounter();
+    resetQuestionNumber();
+    resetResult();
+    hideElement(quizArea);
+    showElement(menuArea);
+}
 //CLASSIC MODE---------------------------------------
 classicMode.onclick = () =>{
     hideElement(menuArea);
@@ -204,7 +226,7 @@ classicMode.onclick = () =>{
     start.play();
 };
 
-//BUTTONS--------------------------------------------
+//ODPOVEDI--------------------------------------------
 btnA.onclick = () => {
     clearButton();
     btnA.style.backgroundColor = "blue";
@@ -277,6 +299,6 @@ submit.onclick = () => {
         hideElement(btnC);
         hideElement(btnD);
         hideElement(submit);
-        showElement(againButton);
-    };
+        displayUtilButttons();
+    }
 };

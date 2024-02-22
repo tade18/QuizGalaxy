@@ -86,6 +86,7 @@ footer p{
 }
 /*Kvíz*/
 #quizArea{
+    display: none;
     height: 70%;
     width: 50%;
     position: absolute;
@@ -143,6 +144,12 @@ footer p{
     text-align: center;
     display: block !important;
 }
+/*Wrap pro tlačítka akcí*/
+#utilButtonWrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 /*Tlačítko pro opakování kvízu*/
 #againButton{
     display: none;
@@ -152,7 +159,15 @@ footer p{
     background-color: transparent;
     color: #FFFAFF;
     width: 20%;
-    margin-left: 40%;
+}
+#menuButton{
+    display: none;
+    font-size: larger;
+    border-radius: 15px;
+    border: #FFFAFF 2px solid;
+    background-color: transparent;
+    color: #FFFAFF;
+    width: 20%;
 }
 /*Výsledek odpovědi*/
 #result{
