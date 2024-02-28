@@ -251,5 +251,16 @@
         "d": "1982"
       },
       "correctAnswer": "b"
+    },
+    {
+      "questionId" : 24,
+      "question": "Ve které zemi nalezneme Egerský hrad?",
+      "answers": {
+        "a": "Maďarsko",
+        "b": "Slovensko",
+        "c": "Německo",
+        "d": "Srbsko"
+      },
+      "correctAnswer": "a"
     }
 ]
