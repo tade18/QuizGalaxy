@@ -131,6 +131,10 @@ const badEndQuiz = () =>{
     hideElement(correctCounter);
     showElement(result);
     questionHeadline.innerText = "Konec hry";
+    hideElement(btnA);
+    hideElement(btnB);
+    hideElement(btnC);
+    hideElement(btnD);
     resetUserAnswer();
     hideElement(submit);
     displayUtilButttons();
