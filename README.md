@@ -1,1 +1,1 @@
-Hokus pokus o kvíz
+<h1>Quiz</h1>
