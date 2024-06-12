@@ -177,7 +177,10 @@ footer p{
     text-align: center;
 }
 #time{
-    width: 100%;
+    width: 98%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
 }
 /*Responzivita pro menší obrazovky*/
 @media screen and (max-width: 950px) {

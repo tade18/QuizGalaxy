@@ -262,5 +262,16 @@
         "d": "Srbsko"
       },
       "correctAnswer": "a"
+    },
+    {
+      "questionId" : 25,
+      "question": "V rámci kterého letu projektu Apollo přistál první člověk na měsíci?",
+      "answers": {
+        "a": "Apollo 1",
+        "b": "Apollo 8",
+        "c": "Apollo 11",
+        "d": "Apollo 17"
+      },
+      "correctAnswer": "c"
     }
 ]
