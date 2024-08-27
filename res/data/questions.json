@@ -273,5 +273,38 @@
         "d": "Apollo 17"
       },
       "correctAnswer": "c"
+    },
+    {
+      "questionId" : 26,
+      "question": "Která řeka protéká městem Bristol (GB) ?",
+      "answers": {
+        "a": "Temže",
+        "b": "Dunaj",
+        "c": "Rýn",
+        "d": "Avona"
+      },
+      "correctAnswer": "d"
+    },
+    {
+      "questionId" : 27,
+      "question": "V italském městě Maranello sídlí italská společnost známá výrobou vysoce výkonným automobilů. O jakou společnost se jedná?",
+      "answers": {
+        "a": "Lamborghini",
+        "b": "Ferrari",
+        "c": "Lancia",
+        "d": "Alfa Rome"
+      },
+      "correctAnswer": "b"
+    },
+    {
+      "questionId" : 28,
+      "question": "Mezi státy Dohody během První světové války nepatří která z uvedených zemí?",
+      "answers": {
+        "a": "Osmanská říše",
+        "b": "Francie",
+        "c": "Rusko",
+        "d": "Velká Británie"
+      },
+      "correctAnswer": "a"
     }
 ]

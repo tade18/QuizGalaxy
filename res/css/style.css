@@ -19,7 +19,7 @@ html,body{
 /*Header*/
 header{
     display: block;
-    background-color: rgba(0, 0, 49, 0.829);
+    background-color: rgba(0, 0, 14, 0.829);
     height: 95px;
     position: absolute;
     top: 0;
@@ -52,7 +52,7 @@ footer{
     position: fixed;
     bottom: 0;
     height: 7%;
-    background-color: rgba(0, 0, 49, 0.829);
+    background-color: rgba(0, 0, 14, 0.829);
     width: 100%;
     display: block;
     text-align: center;
@@ -79,7 +79,7 @@ footer p{
     height: 70%;
     width: 50%;
     position: absolute;
-    background-color: rgba(0, 0, 49, 0.829);
+    background-color: rgba(0, 0, 14, 0.829);
     border-radius: 15px;
     margin-top: 8%;
     transition: 2s ease;
@@ -90,7 +90,7 @@ footer p{
     height: 70%;
     width: 50%;
     position: absolute;
-    background-color: rgba(0, 0, 49, 0.829);
+    background-color: rgba(0, 0, 14, 0.829);
     border-radius: 15px;
     margin-top: 8%;
     transition: 2s ease;

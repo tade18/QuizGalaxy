@@ -19,7 +19,6 @@ function getRandomInt(max) {
 
 //AUDIO-----------------------------------------------
 const correct = new Audio("./res/audio/correct.mp3");
-const endMusic = new Audio("./res/audio/end.mp3");
 const wrong = new Audio("./res/audio/wrong.mp3");
 const start = new Audio("./res/audio/start.mp3");
 const timeRunOut = new Audio("./res/audio/timeRunOut.mp3");
@@ -107,7 +106,6 @@ const endQuiz = () =>{
     hideElement(time);
     result.style.color = "green";
     result.innerText = "Gratulujeme!";
-    endMusic.play();
     hideElement(correctCounter);
     showElement(result);
     questionHeadline.innerText = "Konec hry";
@@ -294,7 +292,7 @@ submit.onclick = () => {
         result.innerText = "Špatně";
         hideElement(time);
         clearInterval(timeProgress);
-        wrong.play();
+        //wrong.play();
         questionHeadline.innerText = "Konec hry";
         generatedNumbers = [];
         resetUserAnswer();
