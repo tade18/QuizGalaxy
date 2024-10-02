@@ -306,5 +306,27 @@
         "d": "Velká Británie"
       },
       "correctAnswer": "a"
+    },
+    {
+      "questionId" : 29,
+      "question": "Jaká je nejdelší řeka na světě?",
+      "answers": {
+        "a": "Nil",
+        "b": "Amazonka",
+        "c": "Mississippi",
+        "d": "Mekong"
+      },
+      "correctAnswer": "b"
+    },
+    {
+      "questionId" : 30,
+      "question": "Jaký bájný tvor má tělo lva a hlavu orla?",
+      "answers": {
+        "a": "Chiméra",
+        "b": "Kentaur",
+        "c": "Minotaur",
+        "d": "Gryf"
+      },
+      "correctAnswer": "d"
     }
 ]
